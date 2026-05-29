@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weapon High-Fidelity Prototype</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="phone">
+
+    <div class="status-bar">
+      <span>9:41</span>
+      <span>◢ ◣ ▮</span>
+    </div>
+
+    <header class="top-header">
+      <div class="brand">
+        <div class="logo">W</div>
+        <h1>Weapon</h1>
+      </div>
+
+      <button class="bell" onclick="toast('No new notifications')">
+        🔔
+        <span></span>
+      </button>
+    </header>
+
+    <!-- DASHBOARD / HOME -->
+    <section id="dashboard" class="screen active">
+      <h2>Dashboard</h2>
+
+      <div class="days">
+        <button>
+          <span>Mon</span>
+          <strong>23</strong>
+        </button>
+
+        <button>
+          <span>Tue</span>
+          <strong>24</strong>
+        </button>
+
+        <button class="selected-day-small">
+          <span>Wed</span>
+          <strong>25</strong>
+        </button>
+
+        <button>
+          <span>Thu</span>
+          <strong>26</strong>
+        </button>
+
+        <button>
+          <span>Fri</span>
+          <strong>27</strong>
+        </button>
+      </div>
+
+      <article class="card pink-card">
+        <h3>Weekly Progress</h3>
+
+        <div class="progress-row">
+          <div class="circle-progress">
+            <span>45%</span>
+          </div>
+
+          <div>
+            <h4>5 of 11 tasks completed</h4>
+            <p>
+              The plan has already adjusted unfinished work into the next available slots.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <article class="card blue-card">
+        <div class="space-between">
+          <h3>Today’s Progress</h3>
+          <strong>33%</strong>
+        </div>
+
+        <div class="bar">
+          <span></span>
+        </div>
+
+        <p>1 of 3 tasks completed</p>
+      </article>
+
+      <div class="section-title">
+        <h3>Upcoming Tasks</h3>
+        <button onclick="showScreen('tasks', 'tasks')">View all ›</button>
+      </div>
+
+      <article class="task pink-border" onclick="showScreen('tasks', 'tasks')">
+        <div class="icon pink-icon">💻</div>
+
+        <div>
+          <h4>Programming: Section A</h4>
+          <p>10:00 - 13:00</p>
+        </div>
+
+        <span class="tag pink-tag">Rescheduled</span>
+      </article>
+
+      <article class="task blue-border" onclick="showScreen('tasks', 'tasks')">
+        <div class="icon blue-icon">📄</div>
+
+        <div>
+          <h4>INSY: Draft introduction</h4>
+          <p>14:00 - 15:00</p>
+        </div>
+
+        <span class="tag blue-tag">Today</span>
+      </article>
+    </section>
+
+    <!-- TASKS / ASSIGNMENT BREAKDOWN -->
+    <section id="tasks" class="screen">
+      <h2>Assignment Breakdown</h2>
+
+      <article class="card pink-card assignment-card">
+        <div class="icon pink-icon">💻</div>
+
+        <div>
+          <h3>Programming Assignment 1</h3>
+          <p>Due: <strong>19 April</strong></p>
+        </div>
+      </article>
+
+      <div class="stepper">
+        <span class="step active-step">1</span>
+        <span class="line active-line"></span>
+        <span class="step">2</span>
+        <span class="line"></span>
+        <span class="step">3</span>
+      </div>
+
+      <article class="breakdown pink-border">
+        <span class="date pink-chip">Apr 10</span>
+        <h4>Plan code structure</h4>
+        <input type="checkbox" />
+      </article>
+
+      <article class="breakdown blue-border">
+        <span class="date blue-chip">Apr 12</span>
+        <h4>Research solution logic</h4>
+        <input type="checkbox" />
+      </article>
+
+      <article class="breakdown pink-border">
+        <span class="date pink-chip">Apr 14</span>
+        <h4>Start Section A</h4>
+        <input type="checkbox" checked />
+      </article>
+
+      <article class="breakdown blue-border">
+        <span class="date blue-chip">Apr 16</span>
+        <h4>Create test cases</h4>
+        <input type="checkbox" />
+      </article>
+
+      <article class="card green-card support-card">
+        <span>🌿</span>
+        <p>
+          Unfinished work will be moved to the next available day based on your plan and workload.
+        </p>
+      </article>
+
+      <button class="full-button" onclick="showScreen('plans', 'plans')">
+        Open Study Plan
+      </button>
+    </section>
+
+    <!-- PLANS / STUDY PLAN -->
+    <section id="plans" class="screen">
+      <h2>Study Plan</h2>
+
+      <article class="card plan-card">
+        <h3>Default plan</h3>
+
+        <div class="chips">
+          <button>Hourly</button>
+          <button>Academic</button>
+          <button class="active-chip">Combined</button>
+        </div>
+      </article>
+
+      <p class="hint">ⓘ Tap a day to open the detailed schedule.</p>
+
+      <h3 class="month">March 2026</h3>
+
+      <div class="week">
+        <span>Mon</span>
+        <span>Tue</span>
+        <span>Wed</span>
+        <span>Thu</span>
+        <span>Fri</span>
+      </div>
+
+      <div class="calendar">
+        <button>2</button>
+        <button>3 <small class="blue-mini">Section A</small></button>
+        <button>4</button>
+        <button>5 <small class="green-mini">Research</small></button>
+        <button>6</button>
+
+        <button>9</button>
+        <button>10 <small class="yellow-mini">Case study</small></button>
+        <button>11 <small class="blue-mini">INSY draft</small></button>
+        <button>12</button>
+        <button>13 <small class="pink-mini">Review</small></button>
+
+        <button>16 <small class="green-mini">Readings</small></button>
+        <button>17</button>
+        <button>18 <small class="yellow-mini">Lecture</small></button>
+        <button>19 <small class="blue-mini">Section B</small></button>
+        <button>20</button>
+
+        <button>23 <small class="pink-mini">Practice</small></button>
+        <button>24</button>
+        <button class="calendar-selected" onclick="showScreen('day', 'plans')">
+          25 <small>Exam prep</small>
+        </button>
+        <button>26 <small class="green-mini">Research</small></button>
+        <button>27 <small class="blue-mini">Draft</small></button>
+
+        <button>30</button>
+        <button>31 <small class="yellow-mini">Case study</small></button>
+      </div>
+
+      <div class="legend">
+        <span><b class="dot pink-dot"></b>Review</span>
+        <span><b class="dot blue-dot"></b>Writing</span>
+        <span><b class="dot green-dot"></b>Research</span>
+        <span><b class="dot yellow-dot"></b>Study</span>
+      </div>
+    </section>
+
+    <!-- CALENDAR -->
+    <section id="calendar" class="screen">
+      <h2>Calendar</h2>
+
+      <article class="card plan-card">
+        <h3>Calendar view</h3>
+
+        <div class="chips">
+          <button class="active-chip">Month</button>
+          <button>Week</button>
+          <button>Deadlines</button>
+        </div>
+      </article>
+
+      <p class="hint">ⓘ Select a date to open the detailed day plan.</p>
+
+      <h3 class="month">March 2026</h3>
+
+      <div class="week">
+        <span>Mon</span>
+        <span>Tue</span>
+        <span>Wed</span>
+        <span>Thu</span>
+        <span>Fri</span>
+      </div>
+
+      <div class="calendar">
+        <button>2</button>
+        <button>3 <small class="blue-mini">Section A</small></button>
+        <button>4</button>
+        <button>5 <small class="green-mini">Research</small></button>
+        <button>6</button>
+
+        <button>9</button>
+        <button>10 <small class="yellow-mini">Case study</small></button>
+        <button>11 <small class="blue-mini">INSY draft</small></button>
+        <button>12</button>
+        <button>13 <small class="pink-mini">Review</small></button>
+
+        <button>16 <small class="green-mini">Readings</small></button>
+        <button>17</button>
+        <button>18 <small class="yellow-mini">Lecture</small></button>
+        <button>19 <small class="blue-mini">Section B</small></button>
+        <button>20</button>
+
+        <button>23 <small class="pink-mini">Practice</small></button>
+        <button>24</button>
+        <button class="calendar-selected" onclick="showScreen('day', 'calendar')">
+          25 <small>Exam prep</small>
+        </button>
+        <button>26 <small class="green-mini">Research</small></button>
+        <button>27 <small class="blue-mini">Draft</small></button>
+
+        <button>30</button>
+        <button>31 <small class="yellow-mini">Case study</small></button>
+      </div>
+
+      <div class="legend">
+        <span><b class="dot pink-dot"></b>Review</span>
+        <span><b class="dot blue-dot"></b>Writing</span>
+        <span><b class="dot green-dot"></b>Research</span>
+        <span><b class="dot yellow-dot"></b>Study</span>
+      </div>
+    </section>
+
+    <!-- DAY PLAN -->
+    <section id="day" class="screen">
+      <h2>Day Plan</h2>
+
+      <article class="date-card">
+        📅 <strong>Wednesday 25 March</strong>
+      </article>
+
+      <article class="schedule blue-schedule">
+        <span>08:00 - 09:00</span>
+
+        <div>
+          <h3>Review notes</h3>
+          <p>Focus on key concepts and summaries</p>
+        </div>
+      </article>
+
+      <article class="schedule active-schedule">
+        <span>09:00 - 10:30</span>
+
+        <div>
+          <h3>Start Section A</h3>
+          <p>Work through exercises and examples</p>
+        </div>
+
+        <b>★ Now</b>
+      </article>
+
+      <article class="schedule green-schedule">
+        <span>10:30 - 11:00</span>
+
+        <div>
+          <h3>30 min walk</h3>
+          <p>Break time 🌿</p>
+        </div>
+      </article>
+
+      <article class="schedule blue-schedule">
+        <span>11:00 - 12:00</span>
+
+        <div>
+          <h3>Research references</h3>
+          <p>Find supporting papers and sources</p>
+        </div>
+      </article>
+
+      <article class="schedule yellow-schedule">
+        <span>12:30 - 13:20</span>
+
+        <div>
+          <h3>Lunch with friend</h3>
+          <p>Personal time 🙂</p>
+        </div>
+      </article>
+
+      <div class="actions">
+        <button onclick="toast('Day plan saved as PDF')">Save as PDF</button>
+        <button class="blue-button" onclick="toast('Day plan saved as PNG')">Save as PNG</button>
+      </div>
+    </section>
+
+    <!-- PROFILE / REMINDER SETTINGS -->
+    <section id="profile" class="screen">
+      <h2>Reminder Settings</h2>
+
+      <article class="card settings-card">
+        <div class="setting">
+          <div class="setting-icon pink-icon">🔔</div>
+
+          <div>
+            <h3>Automate reminders</h3>
+            <p>Send reminders automatically based on your plan.</p>
+          </div>
+
+          <label class="switch">
+            <input type="checkbox" checked />
+            <span></span>
+          </label>
+        </div>
+
+        <div class="setting">
+          <div class="setting-icon pink-icon">📅</div>
+
+          <div>
+            <h3>Automate calendar integration</h3>
+            <p>Sync study sessions and deadlines with your calendar.</p>
+          </div>
+
+          <label class="switch">
+            <input type="checkbox" checked />
+            <span></span>
+          </label>
+        </div>
+
+        <div class="setting">
+          <div class="setting-icon blue-icon">✦</div>
+
+          <div>
+            <h3>Smart catch-up reminders</h3>
+            <p>Get reminders for unfinished tasks automatically.</p>
+          </div>
+
+          <label class="switch">
+            <input type="checkbox" checked />
+            <span></span>
+          </label>
+        </div>
+      </article>
+
+      <h3 class="month">Reminder Frequency</h3>
+
+      <article class="card frequency-card">
+        <label>
+          <input type="radio" name="reminder" />
+          Daily
+        </label>
+
+        <label>
+          <input type="radio" name="reminder" />
+          1 week before
+        </label>
+
+        <label>
+          <input type="radio" name="reminder" checked />
+          1 day before
+        </label>
+
+        <label>
+          <input type="radio" name="reminder" />
+          On the day
+        </label>
+      </article>
+
+      <button class="save" onclick="toast('Reminder settings saved')">
+        Save Settings
+      </button>
+    </section>
+
+    <!-- BOTTOM NAVIGATION -->
+    <nav class="bottom-nav">
+      <button onclick="showScreen('dashboard', 'dashboard')" class="nav active" id="nav-dashboard">
+        ⌂
+        <span>Home</span>
+      </button>
+
+      <button onclick="showScreen('tasks', 'tasks')" class="nav" id="nav-tasks">
+        ☑
+        <span>Tasks</span>
+      </button>
+
+      <button onclick="showScreen('plans', 'plans')" class="nav" id="nav-plans">
+        ▣
+        <span>Plans</span>
+      </button>
+
+      <button onclick="showScreen('calendar', 'calendar')" class="nav" id="nav-calendar">
+        ▦
+        <span>Calendar</span>
+      </button>
+
+      <button onclick="showScreen('profile', 'profile')" class="nav" id="nav-profile">
+        ◉
+        <span>Profile</span>
+      </button>
+    </nav>
+
+    <div id="toast"></div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
